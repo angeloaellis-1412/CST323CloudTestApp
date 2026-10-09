@@ -33,7 +33,10 @@
                     <th>Platform</th>
                     <th>Genre</th>
                     <th>Release Year</th>
-                    <th>Description</th>
+					<th>Completeness</th>
+					<th>Condition</th>
+					<th>Purchase Price</th>
+					<th>Current Value</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -44,7 +47,16 @@
                     <td th:text="${game.platform}"></td>
                     <td th:text="${game.genre}"></td>
                     <td th:text="${game.releaseYear}"></td>
-                    <td th:text="${game.description}"></td>
+					<td>
+					    <span th:if="${game.hasGame}">Game </span>
+					    <span th:if="${game.hasBox}">Box/Case </span>
+					    <span th:if="${game.hasManual}">Manual </span>
+					    <span th:if="${game.sealed}">Sealed</span>
+					</td>
+
+					<td th:text="${game.condition}"></td>
+					<td th:text="${game.purchasePrice != null ? '$' + #numbers.formatDecimal(game.purchasePrice, 1, 2) : ''}"></td>
+					<td th:text="${game.currentValue != null ? '$' + #numbers.formatDecimal(game.currentValue, 1, 2) : ''}"></td>
 
                     <td>
                         <a th:href="@{/games/edit/{id}(id=${game.id})}"

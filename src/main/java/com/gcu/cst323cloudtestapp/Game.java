@@ -24,7 +24,17 @@ public class Game {
     @Column(name = "release_year")
     private Integer releaseYear;
 
-    private String description;
+    private boolean hasGame;
+    private boolean hasBox;
+    private boolean hasManual;
+    private boolean sealed;
+
+    @Column(name = "game_condition")
+    private String condition;
+
+    private Double purchasePrice;
+
+    private Double currentValue;
 
     public Game() {
     }
@@ -69,11 +79,59 @@ public class Game {
         this.releaseYear = releaseYear;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean isHasGame() {
+        return hasGame;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setHasGame(boolean hasGame) {
+        this.hasGame = hasGame;
+    }
+
+    public boolean isHasBox() {
+        return hasBox;
+    }
+
+    public void setHasBox(boolean hasBox) {
+        this.hasBox = hasBox;
+    }
+
+    public boolean isHasManual() {
+        return hasManual;
+    }
+
+    public void setHasManual(boolean hasManual) {
+        this.hasManual = hasManual;
+    }
+
+    public boolean isSealed() {
+        return sealed;
+    }
+
+    public void setSealed(boolean sealed) {
+        this.sealed = sealed;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public Double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(Double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public Double getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(Double currentValue) {
+        this.currentValue = currentValue;
     }
 }
